@@ -1,0 +1,511 @@
+:root {
+--bg: #080808;
+--panel: #101010;
+--line: #292323;
+--red: #e33145;
+--silver: #e6e6e6;
+--muted: #858585;
+}
+
+* {
+  box-sizing: border-box;
+  }
+
+html {
+scroll-behavior: smooth;
+background: var(--bg);
+}
+
+body {
+margin: 0;
+background:
+radial-gradient(ellipse at 50% 0%, #270b101c, transparent 60%),
+var(--bg);
+color: var(--silver);
+font-family: Arial, Helvetica, sans-serif;
+}
+
+button, input {
+font: inherit;
+}
+
+button {
+cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+outline: 2px solid var(--red);
+outline-offset: 3px;
+}
+
+.topbar {
+height: 70px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 7%;
+border-bottom: 1px solid var(--line);
+}
+
+.logo {
+display: flex;
+align-items: center;
+gap: 10px;
+text-decoration: none;
+color: white;
+font-size: 14px;
+font-weight: 900;
+letter-spacing: 3px;
+}
+
+.logo span {
+display: grid;
+place-items: center;
+width: 31px;
+height: 31px;
+border: 1px solid var(--red);
+color: var(--red);
+}
+
+.status {
+color: #aaa;
+font-size: 9px;
+letter-spacing: 1px;
+}
+
+.status i {
+display: inline-block;
+width: 6px;
+height: 6px;
+margin-right: 6px;
+background: #de3948;
+border-radius: 50%;
+box-shadow: 0 0 10px #e33145;
+}
+
+.hero {
+max-width: 1050px;
+margin: auto;
+padding: 90px 25px 60px;
+}
+
+.eyebrow {
+color: var(--red);
+font-size: 10px;
+font-weight: bold;
+letter-spacing: 2.5px;
+}
+
+.hero h1 {
+margin: 24px 0;
+font-size: clamp(47px, 9vw, 86px);
+letter-spacing: -4px;
+line-height: .98;
+}
+
+.hero h1 span,
+.heading h2 span {
+color: var(--red);
+}
+
+.intro {
+max-width: 470px;
+color: #999;
+font-size: 14px;
+line-height: 1.9;
+}
+
+.search {
+display: flex;
+align-items: center;
+gap: 12px;
+max-width: 700px;
+margin-top: 32px;
+padding: 7px;
+background: #101010;
+border: 1px solid #442329;
+}
+
+.search-icon {
+padding-left: 10px;
+font-size: 27px;
+color: var(--red);
+}
+
+.search input,
+.jump input {
+min-width: 0;
+flex: 1;
+padding: 15px 0;
+border: 0;
+outline: none;
+color: white;
+background: transparent;
+}
+
+.search button,
+.jump button {
+padding: 17px;
+background: var(--red);
+border: 0;
+color: white;
+font-size: 10px;
+font-weight: bold;
+letter-spacing: .7px;
+}
+
+.suggestions {
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+gap: 9px;
+margin-top: 17px;
+color: #888;
+font-size: 9px;
+}
+
+.suggestions button {
+padding: 7px 9px;
+background: transparent;
+color: #d6a1a6;
+border: 1px solid #332326;
+font-size: 9px;
+}
+
+.metrics {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+margin-top: 60px;
+border-top: 1px solid var(--line);
+border-bottom: 1px solid var(--line);
+}
+
+.metrics > div {
+display: flex;
+flex-direction: column;
+gap: 10px;
+padding: 23px 18px;
+border-right: 1px solid var(--line);
+}
+
+.metrics > div:first-child {
+padding-left: 0;
+}
+
+.metrics > div:last-child {
+border-right: 0;
+}
+
+.metrics span {
+color: #888;
+font-size: 9px;
+letter-spacing: 1px;
+}
+
+.metrics strong {
+font-size: clamp(20px, 3vw, 30px);
+overflow-wrap: anywhere;
+}
+
+.metrics small {
+color: #777;
+font-size: 10px;
+}
+
+.directory {
+padding: 65px max(20px, calc((100% - 1000px) / 2)) 80px;
+background: #0b0b0b;
+border-top: 1px solid #1c1c1c;
+}
+
+.heading {
+display: flex;
+align-items: end;
+justify-content: space-between;
+gap: 15px;
+margin-bottom: 28px;
+}
+
+.heading h2 {
+margin: 12px 0 0;
+font-size: clamp(27px, 5vw, 39px);
+letter-spacing: -1px;
+}
+
+#count {
+color: var(--red);
+font-size: 9px;
+white-space: nowrap;
+letter-spacing: .7px;
+}
+
+.profiles {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 12px;
+}
+
+.profile {
+min-width: 0;
+min-height: 175px;
+padding: 17px;
+border: 1px solid #282222;
+background: var(--panel);
+animation: appear .2s ease both;
+transition: border-color .2s, background .2s;
+}
+
+.profile:hover {
+border-color: #87313c;
+background: #151112;
+}
+
+.profile-top {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 7px;
+}
+
+.avatar {
+display: grid;
+place-items: center;
+flex-shrink: 0;
+width: 43px;
+height: 43px;
+border: 1px solid var(--red);
+background: #1b0e11;
+color: var(--red);
+font-size: 20px;
+}
+
+.id {
+color: #999;
+text-align: right;
+font-size: 10px;
+overflow-wrap: anywhere;
+}
+
+.name {
+margin: 18px 0 6px;
+font-size: 14px;
+overflow-wrap: anywhere;
+}
+
+.role {
+color: #888;
+font-size: 10px;
+overflow-wrap: anywhere;
+}
+
+.profile-bottom {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 7px;
+margin-top: 19px;
+padding-top: 11px;
+border-top: 1px solid #292323;
+}
+
+.profile-bottom span {
+color: #b66b74;
+font-size: 8px;
+letter-spacing: .5px;
+}
+
+.profile-bottom button {
+padding: 5px 0 5px 5px;
+border: 0;
+color: #ddd;
+background: transparent;
+font-size: 10px;
+}
+
+.loading {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 11px;
+padding: 30px 0;
+color: #888;
+font-size: 11px;
+}
+
+.spinner {
+width: 15px;
+height: 15px;
+border: 2px solid #482329;
+border-top-color: var(--red);
+border-radius: 50%;
+animation: spin .8s linear infinite;
+}
+
+.load-more {
+display: block;
+width: 100%;
+padding: 16px;
+color: #ddd;
+background: #111;
+border: 1px solid #392329;
+font-size: 10px;
+letter-spacing: 1px;
+}
+
+.load-more:hover {
+border-color: var(--red);
+color: var(--red);
+}
+
+.jump {
+margin-top: 42px;
+padding: 25px;
+background: #100d0e;
+border: 1px solid #392329;
+}
+
+.jump p {
+color: #999;
+font-size: 12px;
+}
+
+.jump form {
+display: flex;
+gap: 10px;
+margin-top: 17px;
+}
+
+.jump input {
+padding: 14px;
+border: 1px solid #302629;
+background: #080808;
+}
+
+footer {
+display: flex;
+justify-content: space-between;
+gap: 15px;
+padding: 25px 7%;
+color: #777;
+border-top: 1px solid #222;
+font-size: 9px;
+letter-spacing: .7px;
+}
+
+@keyframes spin {
+to { transform: rotate(360deg); }
+}
+
+@keyframes appear {
+from { opacity: 0; transform: translateY(5px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 650px) {
+.topbar {
+height: 62px;
+padding: 0 17px;
+}
+
+.logo {
+font-size: 11px;
+letter-spacing: 2px;
+}
+
+.hero {
+padding: 62px 19px 45px;
+}
+
+.hero h1 {
+letter-spacing: -2px;
+}
+
+.search {
+gap: 8px;
+}
+
+.search-icon {
+padding-left: 5px;
+}
+
+.search input {
+font-size: 12px;
+}
+
+.search button {
+padding: 15px 10px;
+font-size: 9px;
+}
+
+.metrics > div {
+padding: 18px 8px;
+}
+
+.metrics span {
+font-size: 8px;
+letter-spacing: .3px;
+}
+
+.metrics small {
+line-height: 1.5;
+}
+
+.directory {
+padding: 48px 15px 55px;
+}
+
+.profiles {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 9px;
+}
+
+.profile {
+padding: 12px;
+min-height: 165px;
+}
+
+.name {
+font-size: 13px;
+}
+
+.heading {
+align-items: start;
+}
+
+#count {
+margin-top: 4px;
+font-size: 8px;
+}
+
+.jump {
+padding: 16px;
+}
+
+.jump form {
+flex-direction: column;
+}
+
+footer {
+padding: 22px 16px;
+font-size: 8px;
+}
+}
+
+@media (max-width: 350px) {
+.profiles {
+grid-template-columns: 1fr;
+}
+
+.search-icon {
+display: none;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+*, *::before, *::after {
+scroll-behavior: auto !important;
+animation: none !important;
+transition: none !important;
+}
+}
